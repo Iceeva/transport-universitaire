@@ -567,7 +567,7 @@ git init
 git add .
 git commit -m "Test technique transport universitaire"
 git branch -M main
-git remote add origin <URL de votre dépôt GitHub ou GitLab>
+git remote add origin <https://github.com/Iceeva/transport-universitaire.git>
 git push -u origin main
 ```
 
@@ -581,10 +581,4 @@ Conseil : l'énoncé précise « Nous regardons comment vous travaillez ». Plut
 6. `feat(client): interface React + Bootstrap`
 7. `docs: README`
 
-Envoi du lien par courriel à `atchokpodo@gouv.bj` et `kdegila@gouv.bj`, avec l'objet :
 
-```
-Test technique - Transport universitaire - [Nom Prénom]
-```
-
-(Si le dépôt est privé, pensez à donner l'accès aux deux destinataires.)
