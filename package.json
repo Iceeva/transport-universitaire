@@ -1,0 +1,16 @@
+{
+  "name": "transport-universitaire",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Optimisation du transport universitaire - test technique MTDI Bénin",
+  "scripts": {
+    "install:all": "npm install && npm --prefix server install && npm --prefix client install",
+    "dev": "concurrently -n API,WEB -c blue,green \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
+    "build": "npm --prefix client run build",
+    "start": "npm --prefix server run start",
+    "test": "npm --prefix server run test"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}

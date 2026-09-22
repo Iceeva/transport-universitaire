@@ -1,0 +1,411 @@
+/* Feuille de style : sobre, professionnelle, sans dépendance externe.
+   Palette d'un poste de régulation de transport : bleu ardoise (autorité, réseau)
+   + ambre (signalétique routière) pour les alertes. Bordures fines plutôt que
+   des ombres marquées ; densité d'information plutôt que de la décoration. */
+:root {
+  --ink: #16233a;
+  --ink-soft: #4b5b72;
+  --primary: #1c3f66;
+  --primary-dark: #12283f;
+  --primary-soft: #e7edf4;
+  --bg: #eef1f5;
+  --surface: #ffffff;
+  --border: #d7dee6;
+  --ok: #2f7d52;
+  --warn: #c8792a;
+  --danger: #b23b3b;
+  --radius: 6px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, 'Segoe UI', system-ui, Roboto, Arial, sans-serif;
+  font-size: 0.95rem;
+}
+
+h1, h2, h3, h4, h5, .fw-bold {
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+/* ---------- Structure : sidebar + contenu ---------- */
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.app-sidebar {
+  width: 240px;
+  flex: 0 0 240px;
+  background: var(--primary-dark);
+  color: #cfe0f2;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-brand {
+  padding: 1.1rem 1.15rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.app-brand .bi {
+  font-size: 1.3rem;
+  color: #ffb15c;
+}
+
+.app-brand-text {
+  line-height: 1.15;
+}
+
+.app-brand-text .title {
+  font-weight: 700;
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.app-brand-text .subtitle {
+  font-size: 0.72rem;
+  color: #93a9c4;
+}
+
+.app-nav {
+  padding: 0.6rem;
+  flex-grow: 1;
+}
+
+.app-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: #b9cbe1;
+  padding: 0.55rem 0.7rem;
+  border-radius: var(--radius);
+  font-size: 0.87rem;
+  text-align: left;
+  margin-bottom: 2px;
+}
+
+.app-nav-link:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+
+.app-nav-link.active {
+  background: #ffffff;
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+.app-nav-link .bi {
+  font-size: 1rem;
+  width: 1.1rem;
+  text-align: center;
+}
+
+.app-sidebar-footer {
+  padding: 0.85rem 1.15rem;
+  font-size: 0.72rem;
+  color: #7f95b2;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.app-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-topbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.app-topbar h1 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.app-clock {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  background: var(--primary-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.3rem 0.65rem;
+}
+
+.app-content {
+  padding: 1.25rem 1.5rem 2rem;
+  flex-grow: 1;
+}
+
+.app-footer {
+  padding: 0.9rem 1.5rem;
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 900px) {
+  .app-shell {
+    flex-direction: column;
+  }
+  .app-sidebar {
+    width: 100%;
+    flex: none;
+  }
+  .app-nav {
+    display: flex;
+    overflow-x: auto;
+    gap: 0.25rem;
+  }
+  .app-nav-link {
+    white-space: nowrap;
+  }
+}
+
+/* ---------- Cartes, tableaux, indicateurs ---------- */
+.card {
+  border-color: var(--border);
+  border-radius: var(--radius);
+  box-shadow: none;
+}
+
+.card-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.88rem;
+  color: var(--ink);
+}
+
+.card-footer {
+  background: var(--surface);
+}
+
+.kpi-value {
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+
+.kpi-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  flex: none;
+}
+
+.table {
+  font-size: 0.87rem;
+}
+
+.table th {
+  white-space: nowrap;
+  font-size: 0.76rem;
+  text-transform: none;
+  color: var(--ink-soft);
+  font-weight: 600;
+  border-bottom-color: var(--border);
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+.btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+.btn-outline-primary {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-outline-primary:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.nav-pills .nav-link.active,
+.btn-check:checked + .btn-outline-primary {
+  background-color: var(--primary);
+}
+
+.line-dot {
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 2px;
+  margin-right: 0.35rem;
+  vertical-align: middle;
+}
+
+.line-badge {
+  display: inline-block;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.12rem 0.45rem;
+  border-radius: 3px;
+  margin-right: 0.25rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Carte SVG ---------- */
+.map-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #e4e9ef;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.map-svg.clickable {
+  cursor: crosshair;
+}
+
+.map-stop {
+  fill: #fff;
+  stroke: #333;
+  stroke-width: 1.5;
+}
+
+.map-stop.campus {
+  fill: #ffd43b;
+}
+
+.map-stop.highlight {
+  fill: #20c997;
+  stroke: #0b3d91;
+  stroke-width: 3;
+}
+
+.map-label {
+  font-size: 11px;
+  fill: #222;
+  paint-order: stroke;
+  stroke: #fff;
+  stroke-width: 3px;
+}
+
+.map-bus-ok {
+  fill: var(--ok);
+}
+.map-bus-warn {
+  fill: var(--warn);
+}
+.map-bus-full {
+  fill: var(--danger);
+}
+
+.map-bus-text {
+  font-size: 9px;
+  fill: #fff;
+  font-weight: 700;
+  text-anchor: middle;
+  dominant-baseline: central;
+  pointer-events: none;
+}
+
+.map-student {
+  fill: #6f42c1;
+  stroke: #fff;
+  stroke-width: 2;
+}
+
+/* ---------- Histogramme simple ---------- */
+.chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 170px;
+  padding-top: 0.5rem;
+}
+
+.chart-col {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  min-width: 0;
+}
+
+.chart-bar {
+  width: 100%;
+  background: #9fb6cf;
+  border-radius: 2px 2px 0 0;
+  min-height: 2px;
+}
+
+.chart-bar.highlight {
+  background: var(--warn);
+}
+
+.chart-value {
+  font-size: 0.65rem;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.chart-label {
+  font-size: 0.7rem;
+  color: var(--ink-soft);
+  margin-top: 2px;
+}
+
+.weight-value {
+  min-width: 3.2rem;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.metric-box {
+  background: var(--primary-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.8rem;
+  height: 100%;
+}
+
+.metric-box .metric-value {
+  font-size: 1.35rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}

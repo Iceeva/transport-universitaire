@@ -1,0 +1,17 @@
+{
+  "name": "transport-universitaire-server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "API Express + moteur de simulation du transport universitaire",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test": "node --test",
+    "bench": "node scripts/bench.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}
